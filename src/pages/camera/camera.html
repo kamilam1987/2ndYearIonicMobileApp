@@ -1,0 +1,31 @@
+<!--
+  Generated template for the Camera page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Camera</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class = "start">
+  <img src="{{img}}" *ngIf="img !== ''">
+  
+  <ion-chip #chip1>
+  <ion-icon (click)="getPic('take')" name="camera" color="primary"></ion-icon>
+  <ion-label (click)="getPic('take')">Take Picture</ion-label>
+  </ion-chip>
+
+  <ion-chip #chip2>
+  <ion-icon (click)="getPic('select')" name="images" color="primary"></ion-icon>
+  <ion-label (click)="getPic('select')">Gallery</ion-label>
+  </ion-chip>
+
+</ion-content>
+
+
+  

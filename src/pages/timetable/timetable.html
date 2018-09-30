@@ -1,0 +1,250 @@
+<ion-header>
+  
+  <ion-navbar  no-border-bottom>
+    <ion-title>
+      Timetable
+    </ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="day">
+      <ion-segment-button value="Mon">
+      Mon
+      </ion-segment-button>
+      <ion-segment-button value="Tue">
+      Tue
+      </ion-segment-button>
+      <ion-segment-button value="Wed">
+      Wed
+      </ion-segment-button>
+      <ion-segment-button value="Thur">
+      Thur
+      </ion-segment-button>
+      <ion-segment-button value="Fri">
+      Fri
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="day">
+    <ion-list *ngSwitchCase="'Mon'">
+      <ion-item>
+      <ion-label floating>Subject Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
+      </ion-item>
+        <ion-item>
+  <ion-label>Type</ion-label>
+  <ion-select [(ngModel)]="type">
+    <ion-option value="Lab" selected="true">Lab</ion-option>
+    <ion-option value="Lecture">Lecture</ion-option>
+  </ion-select>
+</ion-item>
+      <ion-item>
+        <ion-label floating>Time</ion-label>
+       <ion-input type = "text" [(ngModel)]="time"></ion-input>
+       <!--displayFormat=" HH:mm" pickerFormat =" HH:mm"-->
+      </ion-item>
+       <ion-item>
+        <ion-label floating>Room</ion-label>
+        <ion-input type="text" [(ngModel)]="room"></ion-input>
+      </ion-item>
+      <button ion-button full (click)="addToMonday(name,type, time, room)">Add to Monday</button>
+       <ion-card *ngFor="let monday of mondays | async">
+    <ion-card-content>
+      <ion-card-title>
+        {{monday.name}}
+        </ion-card-title>
+        <p>
+    {{monday.type}}
+  </p>
+ <p>
+    {{monday.time}}
+  </p>
+  <p>
+     {{monday.room}}
+  </p>
+  <button ion-button style="float: right;" icon-only (click)="Options(monday.$key)">
+
+<ion-icon name="trash"></ion-icon>
+
+</button>
+  
+      
+ </ion-card-content>
+ 
+</ion-card>
+
+
+
+</ion-list>
+<ion-list *ngSwitchCase="'Tue'">
+      <ion-item>
+      <ion-label floating>Subject Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>>
+      </ion-item>
+        <ion-item>
+  <ion-label>Type</ion-label>
+  <ion-select [(ngModel)]="type">
+    <ion-option value="Lab" selected="true">Lab</ion-option>
+    <ion-option value="Lecture">Lecture</ion-option>
+  </ion-select>
+</ion-item>
+      <ion-item>
+        <ion-label floating>Time</ion-label>
+        <ion-datetime type = "text" [(ngModel)]="time"></ion-datetime>
+        <!--displayFormat=" HH:mm" pickerFormat =" HH:mm"-->
+      </ion-item>
+       <ion-item>
+        <ion-label floating>Room</ion-label>
+        <ion-input type="text" [(ngModel)]="room"></ion-input>
+      </ion-item>
+      <button ion-button full (click)="addToTuesday(name, type, time, room)">Add to Tuesday</button>
+      <ion-card *ngFor="let tuesday of tuesdays | async">
+        <ion-card-content>
+          <ion-card-title>
+            {{tuesday.name}}
+            </ion-card-title>
+            <p>
+              {{tuesday.type}}
+            </p>
+            <p>
+               {{tuesday.time}}
+            </p>
+            <p>
+              {{tuesday.room}}
+            </p>
+            <button ion-button style="float: right;" icon-only (click)="OptionsTuesday(tuesday.$key)">
+              <ion-icon name="trash"></ion-icon>
+              </button>
+              </ion-card-content>
+              </ion-card>
+              </ion-list>
+              <ion-list *ngSwitchCase="'Wed'">
+                <ion-item>
+                  <ion-label floating>Subject Name</ion-label>
+                    <ion-input type="text" [(ngModel)]="name"></ion-input>>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Type</ion-label>
+                    <ion-select [(ngModel)]="type">
+                      <ion-option value="Lab" selected="true">Lab</ion-option>
+                        <ion-option value="Lecture">Lecture</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-label floating>Time</ion-label>
+                    <ion-datetime type = "text" [(ngModel)]="time"></ion-datetime>
+                </ion-item>
+                <ion-item>
+                  <ion-label floating>Room</ion-label>
+                    <ion-input type="text" [(ngModel)]="room"></ion-input>
+                </ion-item>
+                <button ion-button full (click)="addToWednesday(name, type, time, room)">Add to Wednesday</button>
+                 <ion-card *ngFor="let wednesday of wednesdays | async">
+                  <ion-card-content>
+                    <ion-card-title>
+                      {{wednesday.name}}
+                    </ion-card-title>
+                    <p>
+                      {{wednesday.type}}
+                    </p>
+                    <p>
+                      {{wednesday.time}}
+                    </p>
+                     <p>
+                       {{wednesday.room}}
+                    </p>
+                    <button ion-button style="float: right;" icon-only (click)="OptionsWednesday(wednesday.$key)">
+                    <ion-icon name="trash"></ion-icon>
+                    </button>
+                  </ion-card-content>
+                </ion-card>
+              </ion-list>
+              <ion-list *ngSwitchCase="'Thur'">
+                <ion-item>
+                  <ion-label floating>Subject Name</ion-label>
+                    <ion-input type="text" [(ngModel)]="name"></ion-input>>
+                </ion-item>
+               <ion-item>
+                <ion-label>Type</ion-label>
+                  <ion-select [(ngModel)]="type">
+                    <ion-option value="Lab" selected="true">Lab</ion-option>
+                    <ion-option value="Lecture">Lecture</ion-option>
+                  </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-label floating>Time</ion-label>
+                    <ion-datetime type = "text" [(ngModel)]="time"></ion-datetime>
+                 </ion-item>
+                  <ion-item>
+                    <ion-label floating>Room</ion-label>
+                      <ion-input type="text" [(ngModel)]="room"></ion-input>
+                        </ion-item>
+                    <button ion-button full (click)="addToThursday(name, type, time, room)">Add to Thursday</button>
+                    <ion-card *ngFor="let thursday of thursdays | async">
+                      <ion-card-content>
+                        <ion-card-title>
+                          {{thursday.name}}
+                        </ion-card-title>
+                        <p>
+                          {{thursday.type}}
+                       </p>
+                        <p>
+                          {{thursday.room}}
+                      </p>
+                      <p>
+                        {{thursday.time}}
+                      <button ion-button style="float: right;" icon-only (click)="OptionsThursday(thursday.$key)">
+                        <ion-icon name="trash"></ion-icon>
+                      </button>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-list>
+                <ion-list *ngSwitchCase="'Fri'">
+                  <ion-item>
+                    <ion-label floating>Subject Name</ion-label>
+                      <ion-input type="text" [(ngModel)]="name"></ion-input>>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Type</ion-label>
+                      <ion-select [(ngModel)]="type">
+                        <ion-option value="Lab" selected="true">Lab</ion-option>
+                        <ion-option value="Lecture">Lecture</ion-option>
+                      </ion-select>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label floating>Time</ion-label>
+                        <ion-datetime type = "text" [(ngModel)]="time"></ion-datetime>
+                    </ion-item>
+                     <ion-item>
+                      <ion-label floating>Room</ion-label>
+                        <ion-input type="text" [(ngModel)]="room"></ion-input>
+                      </ion-item>
+                      <button ion-button full (click)="addToFriday(name, type, time, room)">Add to Friday</button>
+                     <ion-card *ngFor="let friday of fridays | async">
+                      <ion-card-content>
+                        <ion-card-title>
+                          {{friday.name}}
+                        </ion-card-title>
+                        <p>
+                          {{friday.type}}
+                        </p>
+                         <p>
+                          {{friday.time}}
+                        </p>
+                        <p>
+                          {{friday.room}}
+                      </p>
+                      <button ion-button style="float: right;" icon-only (click)="OptionsFriday(friday.$key)">
+                        <ion-icon name="trash"></ion-icon>
+                      </button>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-list>
+              </div>
+            <ion-footer>
+
+            </ion-footer>
+          </ion-content>
