@@ -1,4 +1,4 @@
-��# MyProject
+# MyProject
 My College app Kamila Michel G00340498
 
 My College app is based on a TypeScript language and was designed to help students plan and organise important academic and private events. Application contains of five different tabs, where user can add/remove or see different notifications/events. This document contains of the following parts.
